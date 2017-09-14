@@ -35,9 +35,17 @@ public class MyLinkedListTest {
     first.setNext(second);
     second.setNext(third);
     
-    first.next(); // returns second
-        System.out.println(first.next());
-        System.out.println(first.last().get());
+    first.next();
+    }
+    
+    public void testLast() {
+    ILinkedList<Integer> first = new MyLinkedList(5);
+    ILinkedList<Integer> second = new MyLinkedList(6);
+    ILinkedList<Integer> third = new MyLinkedList(7);
+    first.setNext(second);
+    second.setNext(third);
+    
+    first.last(); 
     }
     
 }

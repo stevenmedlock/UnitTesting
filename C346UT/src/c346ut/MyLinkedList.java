@@ -3,6 +3,7 @@ package c346ut;
 public class MyLinkedList<T> implements ILinkedList<T>{
     private ILinkedList<T> next;
     private T value;
+    private ILinkedList<T> first;
    // @Override
     //public String toString(){
   //     return 
@@ -25,7 +26,10 @@ public class MyLinkedList<T> implements ILinkedList<T>{
     
     @Override
     public ILinkedList<T> after(int n){
-           return null;
+           for (int i = 0; i < n; i++) {
+            next=next.next();
+        }
+           return next;
     }
         
 
@@ -35,7 +39,9 @@ public class MyLinkedList<T> implements ILinkedList<T>{
    //  */
    @Override
     public ILinkedList<T> detach(){
-        return null;
+        ILinkedList temp=next;
+        next=null;
+        return temp;
     }
 
    // /**
@@ -53,6 +59,7 @@ public class MyLinkedList<T> implements ILinkedList<T>{
    //  */
     @Override
     public void set(T value){
+        this.value = value;
     }
 
    // /**
@@ -69,13 +76,18 @@ public class MyLinkedList<T> implements ILinkedList<T>{
    //  * @param next the next element
    //  */
     @Override
-    public void append(ILinkedList<T> next){}
+    public void append(ILinkedList<T> next){
+        this.next=next();
+    }
 
    // /**
    //  * Adds the current list as the next of newFirst
    //  * @param newFirst the new head of the list
    //  */
     @Override
-    public void insert(ILinkedList<T> newFirst){}
+    public void insert(ILinkedList<T> newFirst){
+        newFirst.setNext(first);
+		first = newFirst;
+    }
 }
 
